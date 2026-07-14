@@ -68,6 +68,17 @@ python app.py
 
 ---
 
- 
+## AWS Docker installation in ECR
+- Update the package database
+- sudo apt-get update -y
+- sudo apt-get upgrade
+- curl -fsSL https://get.docker.com -o get-docker.sh
+- sudo sh get-docker.sh
+- sudo usermod -aG docker ubuntu
+- newgrp docker
+- check docker docker--version
+
+ # ECR
+ 993604560048.dkr.ecr.us-east-1.amazonaws.com/medicalbot
 
 
