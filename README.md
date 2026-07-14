@@ -27,14 +27,13 @@
 
 ### 1️⃣ Clone the repository 🛠️  
 ```bash
-git clone https://github.com/your-repo.git
+git clone https://github.com/priyankasuryawanshi18/Medical-Chatbot-with-LLMs-langChain-Pinecone-Flask-and-AWS.git
 cd your-repo
 ```
 
 ### 2️⃣ Create a virtual environment 🌍
 ```bash
 python -m venv venv
-source venv/bin/activate  # On MacOS/Linux
 venv\Scripts\activate     # On Windows
 ```
 
@@ -69,18 +68,8 @@ python app.py
 
 ---
 
-## 🤝 Contributing
-
-🚀 Want to contribute? Feel free to submit a PR! 🛠️  
-
----
-
 ## 📜 License
 
 🔖 This project is licensed under the **MIT License**.  
 
----
 
-## 📩 Contact
-
-📧 **Email:** ayemenbaig26@gmail.com  
