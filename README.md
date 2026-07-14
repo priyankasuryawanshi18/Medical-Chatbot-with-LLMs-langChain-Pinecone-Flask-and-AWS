@@ -1,84 +1,130 @@
-# 🏥 Medical Chatbot
+# Build-a-Complete-Medical-Chatbot-with-LLMs-LangChain-Pinecone-Flask-AWS
 
-🚀 **A cutting-edge AI-powered medical chatbot** designed to assist users with medical queries using advanced NLP and vector search technology.
+# How to run?
+### STEPS:
 
-![Screenshot 2025-02-20 214250](https://github.com/user-attachments/assets/8604a15a-4637-44d0-8fe4-be661ce8de77)
+Clone the repository
 
----
-
-## 📂 Project Structure
-
--  `📁 research/` # 📄 Research documents & references
-- `📁 src/` # ⚙️ Source code for chatbot logic
-- `📁 static/` # 🎨 CSS & frontend assets
-- `📁 templates/` # 🖼️ HTML templates for UI
--  `📜 .gitignore/` # 🚫 Git ignored files
--  `📜 LICENSE/` # 📜 License information
--  `📜 README.md/` # 📖 This file!
--  `📜 app.py/` # 🚀 Main Flask API
-- `📜 requirements.txt/` # 📌 Required dependencies 🔖
--  `📜 setup.py/` # 🛠️ Setup configurations
--  `📜 store_index.py/` # 📂 Pinecone index storage ├
--  `📜 template.py/` # 🎭 UI template logic
-
----
-
-## 🔧 Installation & Setup
-
-### 1️⃣ Clone the repository 🛠️  
 ```bash
 git clone https://github.com/priyankasuryawanshi18/Medical-Chatbot-with-LLMs-langChain-Pinecone-Flask-and-AWS.git
-cd your-repo
 ```
+### STEP 01- Create a conda environment after opening the repository
 
-### 2️⃣ Create a virtual environment 🌍
 ```bash
-python -m venv venv
-venv\Scripts\activate     # On Windows
+conda create -n medibot python=3.10 -y
+```
+
+```bash
+conda activate medibot
 ```
 
 
-### 3️⃣ Install dependencies 📦
+### STEP 02- install the requirements
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4️⃣ Run the application 🚀
+
+### Create a `.env` file in the root directory and add your Pinecone & openai credentials as follows:
+
+```ini
+PINECONE_API_KEY = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+OPENAI_API_KEY = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+```
+
+
 ```bash
+# run the following command to store embeddings to pinecone
+python store_index.py
+```
+
+```bash
+# Finally run the following command
 python app.py
 ```
----
-## 🛠️ Technologies Used
 
-- 🐍 **Python**  
-- ⚡ **FastAPI / Flask**  
-- 🧠 **Machine Learning & NLP**  
-- 🔍 **Pinecone (Vector Search)**  
-- 🎨 **HTML / CSS / JS**  
-- ☁️ **Cloud Deployment (AWS/GCP/Azure)**  
-
----
-
-## 💡 Features
-
-✅ **Real-time medical query responses**  
-✅ **AI-powered chatbot assistant**  
-✅ **Intelligent search with Pinecone**  
-✅ **User-friendly interface**  
-
----
-
-## AWS Docker installation in ECR
-- Update the package database
-- sudo apt-get update -y
-- sudo apt-get upgrade
-- curl -fsSL https://get.docker.com -o get-docker.sh
-- sudo sh get-docker.sh
-- sudo usermod -aG docker ubuntu
-- newgrp docker
-- check docker docker--version
-
- # ECR
- 993604560048.dkr.ecr.us-east-1.amazonaws.com/medicalbot
+Now,
+```bash
+open up localhost:
+```
 
 
+### Techstack Used:
+
+- Python
+- LangChain
+- Flask
+- GPT
+- Pinecone
+
+
+
+# AWS-CICD-Deployment-with-Github-Actions
+
+## 1. Login to AWS console.
+
+## 2. Create IAM user for deployment
+
+	#with specific access
+
+	1. EC2 access : It is virtual machine
+
+	2. ECR: Elastic Container registry to save your docker image in aws
+
+
+	#Description: About the deployment
+
+	1. Build docker image of the source code
+
+	2. Push your docker image to ECR
+
+	3. Launch Your EC2 
+
+	4. Pull Your image from ECR in EC2
+
+	5. Lauch your docker image in EC2
+
+	#Policy:
+
+	1. AmazonEC2ContainerRegistryFullAccess
+
+	2. AmazonEC2FullAccess
+
+	
+## 3. Create ECR repo to store/save docker image
+    - Save the URI: 315865595366.dkr.ecr.us-east-1.amazonaws.com/medicalbot
+
+	
+## 4. Create EC2 machine (Ubuntu) 
+
+## 5. Open EC2 and Install docker in EC2 Machine:
+	
+	
+	#optinal
+
+	sudo apt-get update -y
+
+	sudo apt-get upgrade
+	
+	#required
+
+	curl -fsSL https://get.docker.com -o get-docker.sh
+
+	sudo sh get-docker.sh
+
+	sudo usermod -aG docker ubuntu
+
+	newgrp docker
+	
+# 6. Configure EC2 as self-hosted runner:
+    setting>actions>runner>new self hosted runner> choose os> then run command one by one
+
+
+# 7. Setup github secrets:
+
+   - AWS_ACCESS_KEY_ID
+   - AWS_SECRET_ACCESS_KEY
+   - AWS_DEFAULT_REGION
+   - ECR_REPO
+   - PINECONE_API_KEY
+   - OPENAI_API_KEY
